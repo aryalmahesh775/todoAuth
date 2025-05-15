@@ -29,7 +29,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: { isEmail: true },
       },
       password: DataTypes.STRING,
-      isverified: DataTypes.BOOLEAN,
+      // isverified: DataTypes.BOOLEAN,
+      isverified: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       verificationOTP: DataTypes.STRING,
       otpExpiresAt: DataTypes.DATE,
       profileImage: DataTypes.STRING,

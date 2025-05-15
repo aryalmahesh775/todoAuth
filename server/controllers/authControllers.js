@@ -64,6 +64,7 @@ const verifyOTP = async (req, res) => {
     try {
       const { verificationOTP } = req.body;
       const user = await model.User.findOne({ where: { verificationOTP } });
+      console.log(user)
       if (!user) {
         return responde(res, 400, "Invalid OTP");
       }

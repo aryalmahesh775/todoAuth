@@ -21,7 +21,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       isverified: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       verificationOTP: {
         type: Sequelize.STRING
