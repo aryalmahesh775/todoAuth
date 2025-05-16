@@ -7,6 +7,7 @@ import ForgotPassword from "./components/login/Forgot-Password";
 import HomePage from "./components/home/Home";
 import { ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
+import SuccessLogin from "./components/page/SuccessLogin";
 // import { ProtectedRoute } from "./utils/ProtectedRoute";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
+          <Route path="/success-login" element={<SuccessLogin />} />
           {/* <Route path="/" element={<ProtectedRoute children={<HomePage />} />} /> */}
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<h1>No page found</h1>} />
