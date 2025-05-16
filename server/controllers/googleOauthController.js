@@ -2,6 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const model = require("../models");
 const { generateUUID } = require("../utils/generateUUID");
+require('dotenv').config();
 
 passport.use(
   new GoogleStrategy(
@@ -12,7 +13,6 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, accessToken, refreshToken, profile, done) => {
-      console.log('google-Profile ==>',profile)
       const id = generateUUID();
       const { emails, displayName, photos } = profile;
       try {

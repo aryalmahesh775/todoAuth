@@ -5,7 +5,6 @@ const { generateToken } = require("../utils/generateToken");
 require("../controllers/googleOauthController")
 
 const FrontendURL = process.env.UI_URL;
-const BackendURL = process.env.BACKEND_URL;
 
 router.get(
   "/auth/google",

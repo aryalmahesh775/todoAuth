@@ -4,7 +4,7 @@ require("dotenv").config();
 const { sequelize } = require("./models");
 const authRoute = require("./routes/authRoute");
 const googleRoute = require("./routes/googleRoute");
-const bodyParser = require("body-parser");
+const todosRoute = require("./routes/todoRoute");
 const cookie = require("cookie-parser");
 const expressSession = require("express-session");
 const passport = require("passport");
@@ -19,8 +19,6 @@ const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true,
   methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
-  // preflightContinue: false,
-  // allowedHeaders: ["content-type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
@@ -28,11 +26,6 @@ app.use(expressSession({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  // cookie: {
-  //   maxAge: 36000000, // 10 hours
-  //   httpOnly: true,
-  //   secure: false, // Set to true if using HTTPS
-  // },
 }));
 
 app.use(passport.initialize());
@@ -41,6 +34,7 @@ app.use(passport.session());
 // Routes
 app.use("/", authRoute);
 app.use("/", googleRoute);
+app.use("/", todosRoute);
 
 async function connectToDatabase() {
   try {
