@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import Cookies from "universal-cookie";
+import { isTokenPresent } from "../authToken";
+// import Cookies from "universal-cookie";
 
 export interface CounterState {
   user: any | null;
@@ -10,12 +11,12 @@ export interface CounterState {
   error: string | null; // error message if any, null otherwise
 }
 
-const cookies = new Cookies();
-const token = cookies.get("token");
+// const cookies = new Cookies();
+// const token = cookies.get("token");
 
 const initialState: CounterState = {
   user: null,
-  isAuthenticated: !!token,
+  isAuthenticated: isTokenPresent(),
   loading: false,
   isVerified: false,
   error: null,

@@ -103,7 +103,6 @@ export const fetchUserProfile = async() =>{
      dispatch(authRequest());
      try {
         const response = await axiosInstance.get('/user/profile')
-        console.log(response.data)
         dispatch(authSuccess(response.data.data))
         return response.data;
      } catch (error:any) {
